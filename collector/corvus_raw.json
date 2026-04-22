@@ -1,0 +1,415 @@
+{
+  "scan_time": "2026-04-22T21:35:37.933863325+03:00",
+  "domain": "10.221.66.164",
+  "collector_ver": "v0.1.0",
+  "users": [
+    {
+      "SAMAccountName": "Administrator",
+      "DisplayName": "",
+      "Email": "",
+      "Enabled": true,
+      "LastLogon": "2026-04-22T18:35:37Z",
+      "PasswordLastSet": "2025-12-06T15:26:58Z",
+      "MemberOf": [
+        "CN=Group Policy Creator Owners,CN=Users,DC=şirket,DC=local",
+        "CN=Domain Admins,CN=Users,DC=şirket,DC=local",
+        "CN=Enterprise Admins,CN=Users,DC=şirket,DC=local",
+        "CN=Schema Admins,CN=Users,DC=şirket,DC=local",
+        "CN=Administrators,CN=Builtin,DC=şirket,DC=local"
+      ]
+    },
+    {
+      "SAMAccountName": "Guest",
+      "DisplayName": "",
+      "Email": "",
+      "Enabled": false,
+      "LastLogon": "0001-01-01T00:00:00Z",
+      "PasswordLastSet": "0001-01-01T00:00:00Z",
+      "MemberOf": [
+        "CN=Guests,CN=Builtin,DC=şirket,DC=local"
+      ]
+    },
+    {
+      "SAMAccountName": "krbtgt",
+      "DisplayName": "",
+      "Email": "",
+      "Enabled": false,
+      "LastLogon": "0001-01-01T00:00:00Z",
+      "PasswordLastSet": "2025-12-06T15:43:42Z",
+      "MemberOf": [
+        "CN=Denied RODC Password Replication Group,CN=Users,DC=şirket,DC=local"
+      ]
+    },
+    {
+      "SAMAccountName": "a.bilgi",
+      "DisplayName": "Ahmet Bilgi",
+      "Email": "",
+      "Enabled": true,
+      "LastLogon": "2026-03-05T17:47:43Z",
+      "PasswordLastSet": "2025-12-06T16:11:55Z",
+      "MemberOf": [
+        "CN=Domain Admins,CN=Users,DC=şirket,DC=local",
+        "CN=Remote Desktop Users,CN=Builtin,DC=şirket,DC=local"
+      ]
+    },
+    {
+      "SAMAccountName": "f.yoneten",
+      "DisplayName": "Fatma Yöneten",
+      "Email": "",
+      "Enabled": true,
+      "LastLogon": "2026-03-05T17:47:04Z",
+      "PasswordLastSet": "2025-12-06T16:13:00Z",
+      "MemberOf": []
+    },
+    {
+      "SAMAccountName": "sql_svc",
+      "DisplayName": "",
+      "Email": "",
+      "Enabled": true,
+      "LastLogon": "0001-01-01T00:00:00Z",
+      "PasswordLastSet": "2026-04-21T08:00:13Z",
+      "MemberOf": []
+    },
+    {
+      "SAMAccountName": "asrep_test",
+      "DisplayName": "",
+      "Email": "",
+      "Enabled": true,
+      "LastLogon": "0001-01-01T00:00:00Z",
+      "PasswordLastSet": "2026-04-21T08:21:01Z",
+      "MemberOf": [
+        "CN=Domain Admins,CN=Users,DC=şirket,DC=local"
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "Name": "Administrators",
+      "DN": "CN=Administrators,CN=Builtin,DC=şirket,DC=local",
+      "Member": [
+        "CN=Domain Admins,CN=Users,DC=şirket,DC=local",
+        "CN=Enterprise Admins,CN=Users,DC=şirket,DC=local",
+        "CN=Administrator,CN=Users,DC=şirket,DC=local"
+      ],
+      "IsCritical": true
+    },
+    {
+      "Name": "Users",
+      "DN": "CN=Users,CN=Builtin,DC=şirket,DC=local",
+      "Member": [
+        "CN=Domain Users,CN=Users,DC=şirket,DC=local",
+        "CN=S-1-5-11,CN=ForeignSecurityPrincipals,DC=şirket,DC=local",
+        "CN=S-1-5-4,CN=ForeignSecurityPrincipals,DC=şirket,DC=local"
+      ],
+      "IsCritical": false
+    },
+    {
+      "Name": "Guests",
+      "DN": "CN=Guests,CN=Builtin,DC=şirket,DC=local",
+      "Member": [
+        "CN=Domain Guests,CN=Users,DC=şirket,DC=local",
+        "CN=Guest,CN=Users,DC=şirket,DC=local"
+      ],
+      "IsCritical": false
+    },
+    {
+      "Name": "Print Operators",
+      "DN": "CN=Print Operators,CN=Builtin,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Backup Operators",
+      "DN": "CN=Backup Operators,CN=Builtin,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": true
+    },
+    {
+      "Name": "Replicator",
+      "DN": "CN=Replicator,CN=Builtin,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Remote Desktop Users",
+      "DN": "CN=Remote Desktop Users,CN=Builtin,DC=şirket,DC=local",
+      "Member": [
+        "CN=Ahmet Bilgi,CN=Users,DC=şirket,DC=local"
+      ],
+      "IsCritical": false
+    },
+    {
+      "Name": "Network Configuration Operators",
+      "DN": "CN=Network Configuration Operators,CN=Builtin,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Performance Monitor Users",
+      "DN": "CN=Performance Monitor Users,CN=Builtin,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Performance Log Users",
+      "DN": "CN=Performance Log Users,CN=Builtin,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Distributed COM Users",
+      "DN": "CN=Distributed COM Users,CN=Builtin,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "IIS_IUSRS",
+      "DN": "CN=IIS_IUSRS,CN=Builtin,DC=şirket,DC=local",
+      "Member": [
+        "CN=S-1-5-17,CN=ForeignSecurityPrincipals,DC=şirket,DC=local"
+      ],
+      "IsCritical": false
+    },
+    {
+      "Name": "Cryptographic Operators",
+      "DN": "CN=Cryptographic Operators,CN=Builtin,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Event Log Readers",
+      "DN": "CN=Event Log Readers,CN=Builtin,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Certificate Service DCOM Access",
+      "DN": "CN=Certificate Service DCOM Access,CN=Builtin,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "RDS Remote Access Servers",
+      "DN": "CN=RDS Remote Access Servers,CN=Builtin,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "RDS Endpoint Servers",
+      "DN": "CN=RDS Endpoint Servers,CN=Builtin,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "RDS Management Servers",
+      "DN": "CN=RDS Management Servers,CN=Builtin,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Hyper-V Administrators",
+      "DN": "CN=Hyper-V Administrators,CN=Builtin,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Access Control Assistance Operators",
+      "DN": "CN=Access Control Assistance Operators,CN=Builtin,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Remote Management Users",
+      "DN": "CN=Remote Management Users,CN=Builtin,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Storage Replica Administrators",
+      "DN": "CN=Storage Replica Administrators,CN=Builtin,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Domain Computers",
+      "DN": "CN=Domain Computers,CN=Users,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Domain Controllers",
+      "DN": "CN=Domain Controllers,CN=Users,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Schema Admins",
+      "DN": "CN=Schema Admins,CN=Users,DC=şirket,DC=local",
+      "Member": [
+        "CN=Administrator,CN=Users,DC=şirket,DC=local"
+      ],
+      "IsCritical": true
+    },
+    {
+      "Name": "Enterprise Admins",
+      "DN": "CN=Enterprise Admins,CN=Users,DC=şirket,DC=local",
+      "Member": [
+        "CN=Administrator,CN=Users,DC=şirket,DC=local"
+      ],
+      "IsCritical": true
+    },
+    {
+      "Name": "Cert Publishers",
+      "DN": "CN=Cert Publishers,CN=Users,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Domain Admins",
+      "DN": "CN=Domain Admins,CN=Users,DC=şirket,DC=local",
+      "Member": [
+        "CN=ASREP Test User,CN=Users,DC=şirket,DC=local",
+        "CN=Ahmet Bilgi,CN=Users,DC=şirket,DC=local",
+        "CN=Administrator,CN=Users,DC=şirket,DC=local"
+      ],
+      "IsCritical": true
+    },
+    {
+      "Name": "Domain Users",
+      "DN": "CN=Domain Users,CN=Users,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Domain Guests",
+      "DN": "CN=Domain Guests,CN=Users,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Group Policy Creator Owners",
+      "DN": "CN=Group Policy Creator Owners,CN=Users,DC=şirket,DC=local",
+      "Member": [
+        "CN=Administrator,CN=Users,DC=şirket,DC=local"
+      ],
+      "IsCritical": false
+    },
+    {
+      "Name": "RAS and IAS Servers",
+      "DN": "CN=RAS and IAS Servers,CN=Users,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Server Operators",
+      "DN": "CN=Server Operators,CN=Builtin,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Account Operators",
+      "DN": "CN=Account Operators,CN=Builtin,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": true
+    },
+    {
+      "Name": "Pre-Windows 2000 Compatible Access",
+      "DN": "CN=Pre-Windows 2000 Compatible Access,CN=Builtin,DC=şirket,DC=local",
+      "Member": [
+        "CN=S-1-5-11,CN=ForeignSecurityPrincipals,DC=şirket,DC=local"
+      ],
+      "IsCritical": false
+    },
+    {
+      "Name": "Incoming Forest Trust Builders",
+      "DN": "CN=Incoming Forest Trust Builders,CN=Builtin,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Windows Authorization Access Group",
+      "DN": "CN=Windows Authorization Access Group,CN=Builtin,DC=şirket,DC=local",
+      "Member": [
+        "CN=S-1-5-9,CN=ForeignSecurityPrincipals,DC=şirket,DC=local"
+      ],
+      "IsCritical": false
+    },
+    {
+      "Name": "Terminal Server License Servers",
+      "DN": "CN=Terminal Server License Servers,CN=Builtin,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Allowed RODC Password Replication Group",
+      "DN": "CN=Allowed RODC Password Replication Group,CN=Users,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Denied RODC Password Replication Group",
+      "DN": "CN=Denied RODC Password Replication Group,CN=Users,DC=şirket,DC=local",
+      "Member": [
+        "CN=Read-only Domain Controllers,CN=Users,DC=şirket,DC=local",
+        "CN=Group Policy Creator Owners,CN=Users,DC=şirket,DC=local",
+        "CN=Domain Admins,CN=Users,DC=şirket,DC=local",
+        "CN=Cert Publishers,CN=Users,DC=şirket,DC=local",
+        "CN=Enterprise Admins,CN=Users,DC=şirket,DC=local",
+        "CN=Schema Admins,CN=Users,DC=şirket,DC=local",
+        "CN=Domain Controllers,CN=Users,DC=şirket,DC=local",
+        "CN=krbtgt,CN=Users,DC=şirket,DC=local"
+      ],
+      "IsCritical": false
+    },
+    {
+      "Name": "Read-only Domain Controllers",
+      "DN": "CN=Read-only Domain Controllers,CN=Users,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Enterprise Read-only Domain Controllers",
+      "DN": "CN=Enterprise Read-only Domain Controllers,CN=Users,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Cloneable Domain Controllers",
+      "DN": "CN=Cloneable Domain Controllers,CN=Users,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Protected Users",
+      "DN": "CN=Protected Users,CN=Users,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Key Admins",
+      "DN": "CN=Key Admins,CN=Users,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "Enterprise Key Admins",
+      "DN": "CN=Enterprise Key Admins,CN=Users,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "DnsAdmins",
+      "DN": "CN=DnsAdmins,CN=Users,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    },
+    {
+      "Name": "DnsUpdateProxy",
+      "DN": "CN=DnsUpdateProxy,CN=Users,DC=şirket,DC=local",
+      "Member": [],
+      "IsCritical": false
+    }
+  ],
+  "kerberoastable": null,
+  "asrep_roastable": null
+}
