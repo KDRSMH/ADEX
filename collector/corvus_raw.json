@@ -1,6 +1,6 @@
 {
-  "scan_time": "2026-04-22T21:35:37.933863325+03:00",
-  "domain": "10.221.66.164",
+  "scan_time": "2026-04-28T19:26:03.068845791+03:00",
+  "domain": "10.220.40.164",
   "collector_ver": "v0.1.0",
   "users": [
     {
@@ -8,7 +8,7 @@
       "DisplayName": "",
       "Email": "",
       "Enabled": true,
-      "LastLogon": "2026-04-22T18:35:37Z",
+      "LastLogon": "2026-04-28T16:04:23Z",
       "PasswordLastSet": "2025-12-06T15:26:58Z",
       "MemberOf": [
         "CN=Group Policy Creator Owners,CN=Users,DC=şirket,DC=local",
@@ -410,6 +410,111 @@
       "IsCritical": false
     }
   ],
-  "kerberoastable": null,
-  "asrep_roastable": null
+  "kerberoastable": [
+    {
+      "SAMAccountName": "krbtgt",
+      "SPN": [
+        "kadmin/changepw"
+      ],
+      "PasswordLastSet": "134095094222821564",
+      "RiskNote": "SPN is set; account may be vulnerable to Kerberoasting (offline cracking of TGS-REP)."
+    },
+    {
+      "SAMAccountName": "sql_svc",
+      "SPN": [
+        "MSSQLSvc/db01.şirket.local:1433"
+      ],
+      "PasswordLastSet": "134212320137043216",
+      "RiskNote": "SPN is set; account may be vulnerable to Kerberoasting (offline cracking of TGS-REP)."
+    }
+  ],
+  "asrep_roastable": [
+    {
+      "SAMAccountName": "asrep_test",
+      "DistinguishedName": "CN=ASREP Test User,CN=Users,DC=şirket,DC=local"
+    }
+  ],
+  "stale_accounts": [
+    {
+      "SAMAccountName": "BILGISLEM-PC$",
+      "LastLogon": "2025-12-07T20:02:01Z",
+      "DaysSinceLogin": 141
+    },
+    {
+      "SAMAccountName": "sql_svc",
+      "LastLogon": "Never logged in",
+      "DaysSinceLogin": 0
+    },
+    {
+      "SAMAccountName": "asrep_test",
+      "LastLogon": "Never logged in",
+      "DaysSinceLogin": 0
+    },
+    {
+      "SAMAccountName": "Muhassebe-PC$",
+      "LastLogon": "Never logged in",
+      "DaysSinceLogin": 0
+    }
+  ],
+  "password_policy": {
+    "MinLength": 7,
+    "MaxAge": 42,
+    "ComplexityEnabled": true,
+    "LockoutThreshold": 0,
+    "LockoutDuration": 10,
+    "HistoryLength": 24,
+    "RiskNote": ""
+  },
+  "delegation_issues": [
+    {
+      "SAMAccountName": "DC-SERVER$",
+      "Type": "unconstrained",
+      "TargetSPNs": null
+    }
+  ],
+  "adminsdholder_anomalies": [
+    {
+      "SAMAccountName": "krbtgt",
+      "AdminCount": 1,
+      "MemberOfAdmin": false
+    }
+  ],
+  "laps_missing": [
+    {
+      "ComputerName": "DC-SERVER",
+      "OperatingSystem": "Windows Server 2019 Standard Evaluation"
+    },
+    {
+      "ComputerName": "BILGISLEM-PC",
+      "OperatingSystem": "Windows 10 Enterprise LTSC"
+    },
+    {
+      "ComputerName": "YAZILIM-PC",
+      "OperatingSystem": "Windows 10 Enterprise LTSC"
+    },
+    {
+      "ComputerName": "Muhassebe-PC",
+      "OperatingSystem": ""
+    }
+  ],
+  "signing_status": {
+    "LDAPSigning": "optional",
+    "LDAPSChannel": false
+  },
+  "gpos": [
+    {
+      "Name": "Default Domain Policy",
+      "GUID": "{31B2F340-016D-11D2-945F-00C04FB984F9}",
+      "LinkedTo": null,
+      "UserEnabled": true,
+      "ComputerEnabled": true
+    },
+    {
+      "Name": "Default Domain Controllers Policy",
+      "GUID": "{6AC1786C-016F-11D2-945F-00C04fB984F9}",
+      "LinkedTo": null,
+      "UserEnabled": true,
+      "ComputerEnabled": true
+    }
+  ]
 }

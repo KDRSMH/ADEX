@@ -1,0 +1,121 @@
+{
+    "KERB-001": {
+        "Title": "Kerberoastable Account",
+        "Description": "The account has a Service Principal Name set and its TGS ticket can be requested by any domain user for offline cracking.",
+        "Steps": [
+            "Verify whether the service account actually requires an SPN.",
+            "If not, remove it: Set-ADUser -Clear ServicePrincipalName.",
+            "If required, set a random password of at least 25 characters.",
+            "Consider migrating to a Managed Service Account (MSA) or gMSA."
+        ],
+        "Powershell": "Set-ADAccountPassword -Identity '<account>' -NewPassword (ConvertTo-SecureString (New-Guid).Guid -AsPlainText -Force)"
+    },
+    "ASRP-001": {
+        "Title": "AS-REP Roastable Account",
+        "Description": "Kerberos pre-authentication is disabled, allowing an attacker to request an AS-REP and crack it offline.",
+        "Steps": [
+            "In ADUC, uncheck 'Do not require Kerberos preauthentication'.",
+            "Investigate why this setting was disabled; restrict access if a legacy app requires it."
+        ],
+        "Powershell": "Set-ADAccountControl -Identity '<account>' -DoesNotRequirePreAuth $false"
+    },
+    "DELG-001": {
+        "Title": "Dangerous Delegation Configuration",
+        "Description": "Unconstrained or constrained Kerberos delegation is configured, allowing credential forwarding attacks.",
+        "Steps": [
+            "Identify unconstrained delegation: Get-ADUser -Filter {TrustedForDelegation -eq $true}",
+            "Replace unconstrained delegation with constrained delegation where possible.",
+            "Add sensitive accounts to the Protected Users group to block delegation entirely."
+        ],
+        "Powershell": "Get-ADUser -Filter {TrustedForDelegation -eq $true} | Select SamAccountName"
+    },
+    "DACL-001": {
+        "Title": "Overly Permissive DACL",
+        "Description": "GenericAll, WriteDACL, or WriteOwner permissions grant an attacker the ability to take over objects.",
+        "Steps": [
+            "Use BloodHound or ADACLScanner to identify GenericAll/WriteDACL/WriteOwner permissions.",
+            "Remove unnecessary permissions; apply the principle of least privilege.",
+            "Review the ACL on the AdminSDHolder object."
+        ],
+        "Powershell": ""
+    },
+    "LAPS-001": {
+        "Title": "LAPS Not Deployed",
+        "Description": "Local Administrator Password Solution is not installed; local admin passwords may be shared or stale.",
+        "Steps": [
+            "Enable Microsoft LAPS or Windows LAPS (Windows Server 2019+) via GPO.",
+            "Install ms-Mcs-AdmPwd / msLAPS-Password schema extensions.",
+            "Link the GPO to the affected OUs and run gpupdate /force."
+        ],
+        "Powershell": "Get-ADComputer -Filter * -Properties 'ms-Mcs-AdmPwd' | Where-Object { $_.'ms-Mcs-AdmPwd' -eq $null }"
+    },
+    "SIGN-001": {
+        "Title": "SMB Signing Not Required",
+        "Description": "SMB signing is not enforced, exposing the network to relay and man-in-the-middle attacks.",
+        "Steps": [
+            "GPO: Computer Configuration > Security Settings > Local Policies > Security Options > 'Microsoft network server: Digitally sign communications (always)' = Enabled.",
+            "Apply to both domain controllers and member servers.",
+            "Audit existing SMB connections before enforcing to avoid disruption."
+        ],
+        "Powershell": "Get-SmbServerConfiguration | Select RequireSecuritySignature"
+    },
+    "SIGN-002": {
+        "Title": "LDAP Signing Not Required",
+        "Description": "LDAP signing is not enforced on the domain controller, enabling LDAP relay attacks.",
+        "Steps": [
+            "Verify KB4520412 and later updates are applied to all DCs.",
+            "GPO: 'Domain controller: LDAP server channel binding token requirements' = Always.",
+            "Monitor Event ID 3039/3040 for channel binding failures."
+        ],
+        "Powershell": ""
+    },
+    "PWD-001": {
+        "Title": "Weak Password Policy",
+        "Description": "The domain password policy has weak settings that allow short, simple, or reused passwords.",
+        "Steps": [
+            "Set minimum password length to at least 12 characters.",
+            "Enable password complexity requirements.",
+            "Set password history length to at least 10."
+        ],
+        "Powershell": "Get-ADDefaultDomainPasswordPolicy"
+    },
+    "PWD-002": {
+        "Title": "Excessive Password Maximum Age",
+        "Description": "Passwords are allowed to remain unchanged for too long, increasing the window of exploitation if credentials are compromised.",
+        "Steps": [
+            "Set maximum password age to 90 days or less.",
+            "Apply Fine-Grained Password Policy with shorter cycles for privileged accounts."
+        ],
+        "Powershell": "Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge (New-TimeSpan -Days 90)"
+    },
+    "STALE-001": {
+        "Title": "Stale Account Detected",
+        "Description": "The account has not logged in for over 90 days and represents an unnecessary attack surface.",
+        "Steps": [
+            "List accounts: Search-ADAccount -AccountInactive -TimeSpan 90.00:00:00",
+            "Disable accounts with business unit approval: Disable-ADAccount.",
+            "After a retention period, permanently remove with Remove-ADUser."
+        ],
+        "Powershell": "Search-ADAccount -AccountInactive -TimeSpan 90.00:00:00 -UsersOnly | Select SamAccountName,LastLogonDate"
+    },
+    "ADMN-001": {
+        "Title": "AdminSDHolder Anomaly",
+        "Description": "Account has adminCount=1 but is not a member of any privileged group, indicating a residual or misconfigured access right.",
+        "Steps": [
+            "Identify accounts with adminCount=1 that are not members of any privileged group.",
+            "Manually reset adminCount to 0 on those accounts.",
+            "Verify the DACL is corrected after the SDProp task runs."
+        ],
+        "Powershell": "Get-ADUser -Filter {AdminCount -eq 1} -Properties AdminCount,MemberOf | Select SamAccountName,MemberOf"
+    },
+    "GPO-001": {
+        "Title": "Misconfigured GPO",
+        "Description": "A Group Policy Object is fully disabled, adding clutter and potential confusion to policy management.",
+        "Steps": [
+            "List unlinked and disabled GPOs in Group Policy Management Console.",
+            "Delete or archive unnecessary GPOs.",
+            "Confirm active GPOs are linked to the correct OUs."
+        ],
+        "Powershell": "Get-GPO -All | Where-Object { $_.GpoStatus -eq 'AllSettingsDisabled' }"
+    }
+}

@@ -27,7 +27,7 @@ func NewConfig() *Config {
 	flag.StringVar(&cfg.Password, "Password", "", "LDAP password")
 	flag.StringVar(&cfg.BaseDN, "BaseDN", "", "LDAP base distinguished name")
 	flag.BoolVar(&cfg.UseSSL, "UseSSL", false, "Use SSL connection")
-	flag.StringVar(&cfg.Output, "Output", "corvus_raw.json", "Output file for results")
+	flag.StringVar(&cfg.Output, "Output", "adex_raw.json", "Output file for results")
 
 	flag.Parse()
 	return cfg
@@ -53,7 +53,7 @@ func (c *Config) Validate() error {
 	}
 
 	if strings.TrimSpace(c.Output) == "" {
-		c.Output = "corvus_raw.json"
+		c.Output = "adex_raw.json"
 	}
 
 	return nil

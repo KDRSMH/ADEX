@@ -1,26 +1,26 @@
 package modules
 
 import (
-	"fmt"
 	cldap "collector/ldap"
+	"fmt"
 
 	gldap "github.com/go-ldap/ldap/v3"
 )
 
 type Group struct {
-	Name 	string
-	DN 	  	string
-	Member  []string
+	Name       string
+	DN         string
+	Member     []string
 	IsCritical bool
 }
 
-var criticalGroups = map[string]bool{
-	"Domain Admins":     true,
-	"Enterprise Admins": true,
-	"Administrators":    true,
-	"Schema Admins":     true,
-	"Account Operators": true,
-	"Backup Operators":  true,
+var criticalGroups = map[string]struct{}{
+	"Domain Admins":     {},
+	"Enterprise Admins": {},
+	"Administrators":    {},
+	"Schema Admins":     {},
+	"Account Operators": {},
+	"Backup Operators":  {},
 }
 
 func GetGroups(conn *gldap.Conn, baseDN string) ([]Group, error) {
@@ -43,13 +43,13 @@ func GetGroups(conn *gldap.Conn, baseDN string) ([]Group, error) {
 		_, isCritical := criticalGroups[name]
 
 		group := Group{
-			Name:  name,
-			DN:    entry.GetAttributeValue("distinguishedName"),
-			Member: entry.GetAttributeValues("member"),
+			Name:       name,
+			DN:         entry.GetAttributeValue("distinguishedName"),
+			Member:     entry.GetAttributeValues("member"),
 			IsCritical: isCritical,
 		}
 		groups = append(groups, group)
 	}
-	
+
 	return groups, nil
-}	
+}

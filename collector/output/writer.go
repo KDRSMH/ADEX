@@ -8,17 +8,21 @@ import (
 	"time"
 )
 
-type KerberoastResult struct{}
-type ASREPResult struct{}
-
 type ScanResult struct {
-	ScanTime       time.Time          `json:"scan_time"`
-	Domain         string             `json:"domain"`
-	CollectorVer   string             `json:"collector_ver"`
-	Users          []modules.User     `json:"users"`
-	Groups         []modules.Group    `json:"groups"`
-	Kerberoastable []KerberoastResult `json:"kerberoastable"`
-	ASREPRoastable []ASREPResult      `json:"asrep_roastable"`
+	ScanTime               time.Time                     `json:"scan_time"`
+	Domain                 string                        `json:"domain"`
+	CollectorVer           string                        `json:"collector_ver"`
+	Users                  []modules.User                `json:"users"`
+	Groups                 []modules.Group               `json:"groups"`
+	Kerberoastable         []modules.KerberoastResult    `json:"kerberoastable"`
+	ASREPRoastable         []modules.ASREPResult         `json:"asrep_roastable"`
+	StaleAccounts          []modules.StaleAccount        `json:"stale_accounts"`
+	PasswordPolicy         *modules.PasswordPolicy       `json:"password_policy"`
+	DelegationIssues       []modules.DelegationResult    `json:"delegation_issues"`
+	AdminSDHolderAnomalies []modules.AdminSDHolderResult `json:"adminsdholder_anomalies"`
+	LAPSMissing            []modules.LAPSMissingResult   `json:"laps_missing"`
+	SigningStatus          *modules.SigningResult        `json:"signing_status"`
+	GPOs                   []modules.GPOResult           `json:"gpos"`
 }
 
 func WriteJSON(result ScanResult, outputPath string) error {
