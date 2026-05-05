@@ -1,13 +1,3 @@
-```
-  ████   █████  ████████ ██   ██
- ██  ██ ██   ██ ██       ██   ██
- ██  ██ ██   ██ ██        ██ ██
- ██████ ██   ██ ██████     ███
- ██  ██ ██   ██ ██        ██ ██
- ██  ██ ██   ██ ██       ██   ██
- ██  ██ █████   ████████ ██   ██
-```
-
 > **Active Directory Security Auditor** — Pentest & SOC teams
 
 ADEX is a modular, terminal-driven Active Directory security audit tool. It collects raw LDAP data, analyzes it for misconfigurations and common attack vectors, scores findings by severity, and presents everything in an interactive web dashboard.
@@ -191,6 +181,22 @@ adex/
 │   └── dist/       # Built dashboard (single HTML file)
 └── adex-cli        # Compiled launcher binary
 ```
+
+---
+
+## Screenshots
+
+### CLI — Interactive Menu
+![ADEX CLI Banner & Menu](img/Screenshot%20From%202026-05-05%2023-58-19.png)
+
+### Web Dashboard — Load Screen
+![ADEX Web Dashboard Load Screen](img/Screenshot%20From%202026-05-06%2000-04-32.png)
+
+### Web Dashboard — Findings View
+![ADEX Web Dashboard Findings](img/Screenshot%20From%202026-05-06%2000-04-56.png)
+
+### Full Scan & Analyze Workflow
+![ADEX Full Scan Workflow](img/Screenshot%20From%202026-05-06%2000-10-03.png)
 
 ---
 
